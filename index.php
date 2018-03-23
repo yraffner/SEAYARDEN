@@ -4,6 +4,11 @@
 </head>
 <body>
   <?php
+
+  $variable = 1;
+  echo($variable)."<br>";
+  $variable2 = $variable + 1;
+  echo($variable2);
   try{
     $bdd = new PDO('mysql:host =localhost;dbname=sea;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   }
@@ -15,12 +20,10 @@
   $reponse = $bdd->query('SELECT * FROM utilisateur');
   while ($donnees = $reponse->fetch())
   {
-    var_dump($donnees);
+    print_r($donnees);
   }
 
   $reponse->closeCursor();
-  include("./menu.php");
-  include("./connexion.php");
   ?>
 </body>
 </html>
