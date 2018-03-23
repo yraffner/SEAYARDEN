@@ -16,14 +16,6 @@
   {
     die('error: ' . $e->getMessage());
   }
-  $bdd->exec("UPDATE utilisateur SET email = 'imbo@imbo.com' WHERE nom_user = 'imbo'");
-  $reponse = $bdd->query('SELECT * FROM utilisateur');
-  while ($donnees = $reponse->fetch())
-  {
-    print_r($donnees);
-  }
-
-  $reponse->closeCursor();
   ?>
 </body>
 </html>

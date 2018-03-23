@@ -11,8 +11,10 @@ echo('<form method="get" action="connexion.php"><p>
 </p>
 <p><input type="submit" value="Connexion" /></p></form>');
 
-//verifie si les champs sont renseignés
+//verifie si les champs sont renseignés par l'user
 if (!empty($_GET['pseudo']) && !empty($_GET['password'])){
+
+  $email = $_GET['pseudo'];
 
   //Connection à la base de données
   try{
@@ -47,16 +49,50 @@ if (!empty($_GET['pseudo']) && !empty($_GET['password'])){
     echo 'erreur identifiants';
   }
   else {
-    header('Location: http://localhost/SEAYARDEN/accueil.php');
+    $script = retour_statut($email,$bdd).".php";
+
+    header("Location: http://localhost/SEAYARDEN/".$script);
   }
 }else {
   echo 'remplir le formulaire svp';
 }
 
 
+function retour_statut($email,$bdd)
+{
+  $statut ="";
+  $sousrequete = " IN (SELECT `id_user` FROM `utilisateur` WHERE `email` = '".$email."')";
+  $sql = "SELECT COUNT(*) as apprenti FROM apprenti WHERE id_apprenti".$sousrequete;
 
+  $bdd->query($sql);
+  $reponse= $bdd->query($sql);
+  $donneesapp = $reponse->fetchAll();
 
+  $sql = "SELECT COUNT(*) as responsable FROM responsable_de_filiere WHERE id_responsable_de_filiere".$sousrequete;
 
+  $bdd->query($sql);
+  $reponse= $bdd->query($sql);
+  $donneesres = $reponse->fetchAll();
+
+  $sql = "SELECT COUNT(*) as visiteur FROM visiteur WHERE id_visiteur".$sousrequete;
+
+  $bdd->query($sql);
+  $reponse= $bdd->query($sql);
+  $donneesvis = $reponse->fetchAll();
+
+if($donneesapp[0]['apprenti'] == 1)
+{
+    $statut = "apprenti";
+}
+elseif($donneesres[0]['responsable'] == 1){
+  $statut =  "responsable";
+}
+elseif($donneesvis[0]['visiteur'] == 1)
+{
+  $statut = "visiteur";
+}
+return $statut;
+}
 
 
 
