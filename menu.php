@@ -1,21 +1,7 @@
-<?php
-echo '<body>
-<div id="banniere"></div>
-<div id="menu">
-<div class="element_menu">
-<h3>Mes options</h3>
-<ul>
-<li>Page 1</li>
-<li>Page 2</li>
-</ul>
-</div>
-<div class="element_menu">
-<h3>Navigation</h3>
-<ul>
-<li>Page 1</li>
-<li>Page 2</li>
-</ul>
-</div>
-</div>
-<div id="corps_forum">';
-?>
+<!doctype html>
+<html lang="fr">
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+</html>
