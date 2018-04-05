@@ -32,7 +32,7 @@ echo"</tr>";
 }
 ?>
 </table>
-
+<form method='post' name='add_user' action='add_user.php'><input type = 'submit' name='' value= 'ajouter'></form>
 
 <?php
 //var_dump($_POST);

@@ -31,7 +31,7 @@ EMAIL <input type = "text" name="email" value="<?=$don["email"];?>"><br>
 MOT DE PASSE <input type = "password" name="mdp" value="<?=$don["mdp"];?>"><hr>
 <p>FORMATION <input type = "text" name="formation" value="<?=$don["libelle_formation"];?>"></p>
 <p>SESSION <input type = "text" name="session" value= "<?=$don["libelle_session"];?>"><hr>
-<input type = "text" name="id_entreprise" value= "<?=$don["id_entreprise"];?>"></p>
+<input type = "hidden" name="id_entreprise" value= "<?=$don["id_entreprise"];?>"></p>
 <p>ENTREPRISE <input type = "text" name="entreprise" value="<?=$don["nom_entreprise"];?>" disabled></p>
 <p>ADRESSE <input type = "text" name="adresse" value="<?=$don["adresse"];?>"disabled></p>
 VILLE <input type = "text" name="ville" value="<?=$don["ville"];?>"disabled>
@@ -39,8 +39,9 @@ CODE POSTAL <input type = "text" name="cp" value="<?=$don["cp"];?>"disabled>
 
 <hr>
 <p><input type = "submit" name="supprimer" value= "supprimer">
-<input type = "submit" name="action_user" value= "">
-<input type = "reset" name="" value= "intialiser">
+<input type = "submit" name="modifier" value= "modifier">
+<input type = "reset" value= "intialiser">
+<input type = "submit" name="retour" value= "retour">
 </form>
 </P>
 
@@ -53,6 +54,17 @@ CODE POSTAL <input type = "text" name="cp" value="<?=$don["cp"];?>"disabled>
 
 
 <?php
+
+
+if(isset($_POST['retour'])){
+
+header('Location:responsable.php');
+}
+
+
+
+
+
 if(isset($_POST['selectionner'])){
 
 
