@@ -1,11 +1,12 @@
 <?php
 
 session_start();
-
+include('connexion.php');
+include('fonction.php');
 $title = "ACCUEIL";
 echo('<h1>'.$title.'</h1>');
 
-echo('<form method="get" action="connexion.php"><p>
+echo('<form method="get"><p>
 <label for="pseudo">Pseudo :</label><input name="pseudo" type="text" id="pseudo" /><br />
 <label for="password">Mot de Passe :</label><input type="password" name="password" id="password" />
 </p>
@@ -16,8 +17,8 @@ if (!empty($_GET['pseudo']) && !empty($_GET['password'])){
 
   $email = $_GET['pseudo'];
 
-  //Connection à la base de données
-include('connexion.php');
+
+
   //Requete à la base
   $sql = "SELECT * FROM utilisateur";
   $bdd->query($sql);

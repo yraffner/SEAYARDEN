@@ -4,7 +4,7 @@
 include('connexion.php');
 include('fonction.php');
 
-var_dump($_POST);
+
 $id = $_POST['id_user'];
 $sql = "SELECT * FROM `utilisateur`
 LEFT JOIN apprenti ON id_user = id_apprenti
@@ -16,7 +16,7 @@ $bdd->query($sql);
 $reponse= $bdd->query($sql);
 $don = $reponse->fetch();
 
-var_dump($don);
+
 ?>
 
 
@@ -32,10 +32,10 @@ MOT DE PASSE <input type = "password" name="mdp" value="<?=$don["mdp"];?>"><hr>
 <p>FORMATION <input type = "text" name="formation" value="<?=$don["libelle_formation"];?>"></p>
 <p>SESSION <input type = "text" name="session" value= "<?=$don["libelle_session"];?>"><hr>
 <input type = "text" name="id_entreprise" value= "<?=$don["id_entreprise"];?>"></p>
-<p>ENTREPRISE <input type = "text" name="entreprise" value="<?=$don["id_entreprise"];?>"></p>
-<p>ADRESSE <input type = "text" name="adresse" value=""></p>
-VILLE <input type = "text" name="ville" value="">
-CODE POSTAL <input type = "text" name="cp" value="">
+<p>ENTREPRISE <input type = "text" name="entreprise" value="<?=$don["nom_entreprise"];?>" disabled></p>
+<p>ADRESSE <input type = "text" name="adresse" value="<?=$don["adresse"];?>"disabled></p>
+VILLE <input type = "text" name="ville" value="<?=$don["ville"];?>"disabled>
+CODE POSTAL <input type = "text" name="cp" value="<?=$don["cp"];?>"disabled>
 
 <hr>
 <p><input type = "submit" name="supprimer" value= "supprimer">
@@ -55,6 +55,6 @@ CODE POSTAL <input type = "text" name="cp" value="">
 <?php
 if(isset($_POST['selectionner'])){
 
-  var_dump($don);
+
 }
  ?>
