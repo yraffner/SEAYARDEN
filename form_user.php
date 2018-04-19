@@ -27,7 +27,7 @@ $don = $reponse->fetch();
 <p>NOM <input type = "text" name="nom_user" value= "<?=$don["nom_user"];?>"></p>
 <p>PRENOM <input type = "text" name="prenom_user" value="<?=$don["prenom_user"];?>"></p>
 STATUT<input type = "text" name="statut" value="<?=retour_statut($don["email"],$bdd);?>"><br>
-EMAIL <input type = "text" name="email" value="<?=$don["email"];?>"><br>
+EMAIL <input type = "email" name="email" value="<?=$don["email"];?>"><br>
 MOT DE PASSE <input type = "password" name="mdp" value="<?=$don["mdp"];?>"><hr>
 <p>FORMATION <input type = "text" name="formation" value="<?=$don["libelle_formation"];?>"></p>
 <p>SESSION <input type = "text" name="session" value= "<?=$don["libelle_session"];?>"><hr>
