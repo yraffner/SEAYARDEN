@@ -23,7 +23,9 @@ $formations =$req->fetchAll();
       <option value = "responsable de filiere">responsable de filiere</option>
     </select></p>
     EMAIL <input type = "email" name="email" value="" required><br>
-    MOT DE PASSE <input type = "password" name="mdp" value="" required><hr>
+    MOT DE PASSE <input type = "password" name="mdp" value="" required>
+  </form>
+    <hr>
     <p>FORMATION <select name="formation"></p>
       <option value = "0"></option>
       <?php
@@ -33,8 +35,11 @@ $formations =$req->fetchAll();
         echo("<option value =\"".$formation['id_formation']."\">".$formation['libelle_formation']."</option>");
       }
       ?>
-    </select></p>
-    <p>SESSION <select name="session"><hr>
+    </select>
+    <form method="post" name="formulaire2">
+      <input type="submit" name="addformation" value="ajouter une formation">
+    </form>
+    <p>SESSION <select name="session"><p>
       <option value = "0"></option>
       <?php
 
@@ -43,7 +48,10 @@ $formations =$req->fetchAll();
         echo("<option value =\"".$session['id_session']."\">".$session['libelle_session']."</option>");
       }
       ?>
-    </select></p>
+    </select>
+    <form method="post" name="formulaire3">
+      <input type="submit" name="addsession" value="ajouter une session">
+    </form>
     <input type = "hidden" name="id_entreprise" value= ""></p>
     <p>ENTREPRISE <select name="entreprise">
       <option value = "0"></option>
@@ -54,18 +62,16 @@ $formations =$req->fetchAll();
         echo("<option value =\"".$entreprise['id_entreprise']."\">".$entreprise['nom_entreprise']."-".$entreprise['cp']."</option>");
       }
       ?>
-    </select></p>
+    </select>
+    <form method="post" name="formulaire4">
+      <input type="submit" name="addentreprise" value="Ajoutrer une entreprise">
+    </form>
     <hr>
     <p>
       <input type = "submit" name="ajouter" value= "ajouter">
       <input type = "reset" value= "intialiser">
-    </form><form method="post" name="formulaire2">
+    <form method="post" name="formulaire5">
       <input type = "submit" name="retour" value= "retour"><!--pour qe bouton retour n interfere pas avec le required-->
-    </form>
-    <form method="post" name="formulaire3">
-      <input type="submit" name="addentreprise" value="addentreprise">
-      <input type="submit" name="addsession" value="addsession">
-      <input type="submit" name="addformation" value="addformation">
     </form>
   </P>
 
